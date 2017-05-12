@@ -1,0 +1,6 @@
+N,MinMultiplications,TimeTaken,Scalar
+5,475,75ms,10
+6,875,39ms,30
+7,1325,37ms,65
+8,1820,52ms,121
+9,2180,43ms,205

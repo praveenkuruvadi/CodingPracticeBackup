@@ -1,0 +1,6 @@
+N,MinMultiplications,TimeTaken,Scalar,RecursiveCalls
+5,475,55ms,10,21
+6,875,47ms,30,62
+7,1325,33ms,65,133
+8,1820,43ms,121,246
+9,2180,77ms,205,415
