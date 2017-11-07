@@ -1,0 +1,10 @@
+package leetCodeEasy;
+
+public class twoStringPermutationCheck {
+
+	public static void main(String[] args) {
+		String one = "praveen";
+
+	}
+
+}

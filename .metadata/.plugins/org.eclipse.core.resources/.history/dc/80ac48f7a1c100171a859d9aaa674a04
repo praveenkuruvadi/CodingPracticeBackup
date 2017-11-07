@@ -1,0 +1,13 @@
+package BlackRock;
+
+public class findClosestPair {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input = {10, 22, 28, 29, 30, 40};
+		int elem = 54;
+		System.out.println(closestPair(input,elem));
+
+	}
+
+}

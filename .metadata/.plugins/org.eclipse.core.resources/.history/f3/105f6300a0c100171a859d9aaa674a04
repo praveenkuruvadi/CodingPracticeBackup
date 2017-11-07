@@ -1,0 +1,9 @@
+package BlackRock;
+
+public class sortStringDescending {
+	public static void main(String[] args){
+		String input = "geeksforgeeks";
+		System.out.println(sortDescending(input));
+	}
+
+}

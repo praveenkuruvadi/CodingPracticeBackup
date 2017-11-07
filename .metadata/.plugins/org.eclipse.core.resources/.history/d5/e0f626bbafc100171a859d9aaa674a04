@@ -1,0 +1,39 @@
+package BlackRock;
+
+import java.util.ArrayList;
+
+public class countInversions {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input = {2, 4, 1, 3, 5};
+		System.out.println(countedMergeSort(input,0,input.length-1));
+	}
+
+	private static int countedMergeSort(int[] input, int left, int right) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		if(left<right){
+			int mid = (left+right)/2;
+			count = countedMergeSort(input,left,mid)+countedMergeSort(input,mid+1,right);
+			count+= merge(input,left,right,mid);
+		}
+		
+		return count;
+	}
+
+	private static int merge(int[] input, int left, int right, int mid) {
+		// TODO Auto-generated method stub
+		ArrayList<Integer> sortedList = new ArrayList<Integer>();
+		int i = left;
+		int j = mid+1;
+		while(i<=mid&& j<=right){
+			if(input[i]<input[j]){
+				sortedList = input[i];
+				i++;
+			}
+		}
+		return 0;
+	}
+
+}

@@ -1,0 +1,11 @@
+package codingInterview;
+
+public class oneAway {
+
+	public static void main(String[] args) {
+		String one = "pale";
+		String two ="ple";
+
+	}
+
+}

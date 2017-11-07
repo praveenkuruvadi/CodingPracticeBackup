@@ -1,0 +1,82 @@
+package TreesNGraphs;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+class Edge{
+	graphNode start;
+	graphNode end;
+	int weight;
+	
+	public Edge(graphNode start,graphNode end, int weight){
+		this.start = start;
+		this.end = end;
+		this.weight = weight;
+	}
+}
+
+public class Graph implements Iterator{
+	private List<graphNode> graph;
+	private List<Edge> edges;
+	public Graph(){
+		this.graph = new ArrayList<graphNode>();
+		this.edges = new ArrayList<Edge>();
+	}
+	
+	public Graph(int size){
+		this.graph = new ArrayList<graphNode>();
+		this.edges = new ArrayList<Edge>();
+		for(int i=0;i<size;i++)
+			this.graph.add(new graphNode(i));
+	}
+	
+	public void addEdge(int i,int j, int weight) throws Exception{
+		try{
+			this.edges.add(new Edge(this.graph.get(i),this.graph.get(j),weight));
+			this.graph.get(i).addNbr(this.graph.get(j));
+			this.graph.get(j).addNbr(this.graph.get(i));
+		}
+		catch(Exception e){
+			throw new Exception(e.getMessage());
+		}
+	}
+	
+	public int getSize(){
+		return this.graph.size();
+	}
+	
+	public Collection<graphNode> getNodes(){
+		return this.graph;
+	}
+	
+	public Collection<Edge> getEdges(){
+		return this.edges;
+	}
+	
+	public graphNode getNode(int i) throws Exception{
+		try{
+			return this.graph.get(i);
+		}catch(Exception e){
+			throw new Exception(e.getMessage());
+		}
+	}
+	
+	public void resetVisits(){
+		for(graphNode node:this.graph)
+			node.setVisited(false);
+	}
+
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Object next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

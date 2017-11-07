@@ -1,0 +1,23 @@
+package codingInterview;
+
+import java.util.Arrays;
+
+public class oneAway {
+
+	public static void main(String[] args) {
+		String one = "pale";
+		String two ="ple";
+		char[] arrOne = one.toCharArray();
+		char[] arrTwo = two.toCharArray();
+		Arrays.sort(arrOne);
+		Arrays.sort(arrTwo);
+		int[] charArr = new int[Character.getNumericValue('z')-Character.getNumericValue('z')+1];
+		int oddCount=0,val=0;
+		for(char c:arrOne){
+			val =Character.getNumericValue(c)-Character.getNumericValue('a');
+			charArr[val]++;
+		}
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package codingInterview;
+
+public class stringCompression {
+
+	public static void main(String[] args) {
+		String toCompress = "aabcccccaaa"
+;
+	}
+
+}

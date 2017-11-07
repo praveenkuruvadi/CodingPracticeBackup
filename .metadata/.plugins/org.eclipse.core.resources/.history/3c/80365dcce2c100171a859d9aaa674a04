@@ -1,0 +1,37 @@
+package BlackRock;
+
+import java.util.Comparator;
+
+public class JobPickingWithDeadline {
+	class Job{
+		char id;
+		int deadline;
+		int profit;
+		
+		public Job(char id,int deadline,int profit){
+			this.id = id;
+			this.deadline = deadline;
+			this.profit = profit;
+		}
+	}
+	
+	class JobComparator implements Comparator<Job>{
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JobPickingWithDeadline jobDealine = new JobPickingWithDeadline();
+		Job[] jobs = new Job[5];
+		jobs[0] = jobDealine.new Job('a', 2, 100);
+		jobs[1] = jobDealine.new Job('b', 1, 19);
+		jobs[2] = jobDealine.new Job('c', 2, 27);
+		jobs[3] = jobDealine.new Job('d', 1, 25);
+		jobs[4] = jobDealine.new Job('e', 3, 15);
+		scheduleJobs(jobs);
+	}
+	private static void scheduleJobs(Job[] jobs) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

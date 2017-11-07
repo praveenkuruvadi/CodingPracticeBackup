@@ -1,0 +1,53 @@
+package BlackRock;
+
+import java.util.Comparator;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class JavaTesting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>(new Comparator<Integer>(){
+
+			@Override
+			public int compare(Integer arg0, Integer arg1) {
+				// TODO Auto-generated method stub
+				return arg1-arg0;
+			}
+			
+		});
+		map.put(7, 5);
+		map.put(6, 4);
+		map.put(5, 3);
+		map.put(4, 2);
+		map.put(3, 1);
+		
+		for(Entry<Integer,Integer> i:map.entrySet())
+			System.out.println(i.getKey()+":"+i.getValue());
+		
+		
+		try {
+			LinkedListGeneric<Integer> list = new LinkedListGeneric<Integer>();
+			list.insert(2);
+			list.insert(3);
+			list.insert(5);
+			list.insert(7);
+			list.insert(6);
+			list.TraverseList();
+			list.deleteAtPosition(1);
+			list.TraverseList();
+			list.deleteAtPosition(2);
+			list.TraverseList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+
+		
+	}
+	
+	
+}

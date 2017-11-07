@@ -1,0 +1,22 @@
+package codingInterview;
+
+import java.util.Arrays;
+
+public class oneAway {
+
+	public static void main(String[] args) {
+		String one = "pale";
+		String two ="ple";
+		char[] arrOne = one.toCharArray();
+		char[] arrTwo = two.toCharArray();
+		Arrays.sort(arrOne);
+		Arrays.sort(arrTwo);
+		String lexioOne =new String(arrOne);
+		String lexioTwo = new String(arrTwo);
+		int maxCommon = recursive(lexioOne,lexioTwo, lexioOne.length()-1,lexioTwo.length()-1);
+		
+		
+
+	}
+
+}

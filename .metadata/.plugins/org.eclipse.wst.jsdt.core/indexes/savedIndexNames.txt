@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\Users\pkcoo\Documents\CodingPractice\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1678706299.index
+3835355569.index
+52364631.index
+3098528925.index
+3045126594.index
+2479639611.index

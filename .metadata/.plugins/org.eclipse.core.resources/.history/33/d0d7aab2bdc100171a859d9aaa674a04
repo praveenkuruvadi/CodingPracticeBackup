@@ -1,0 +1,25 @@
+package BlackRock;
+
+class Job{
+	int time;
+	int loss;
+	int id;
+	public Job(int id,int time,int loss){
+		this.time = time;
+		this.loss = loss;
+	}
+}
+public class orderJobsMinLoss {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] Loss = {3, 1, 2, 4};
+		int[] Time = {4, 1000, 2, 5};
+		Job[] job = new Job[Loss.length];
+		for(int i=0;i<Loss.length;i++)
+			job[i] = new Job(i,Time[i],Loss[i]);
+		
+		
+	}
+
+}

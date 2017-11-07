@@ -1,0 +1,36 @@
+package TreesNGraphs;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class verticalOrderTraversal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		treeNode root = new treeNode(1);
+		root.left = new treeNode(2);
+		root.right = new treeNode(3);
+		root.left.left = new treeNode(4);
+		root.left.right = new treeNode(5);
+		root.right.left = new treeNode(6);
+		root.right.right = new treeNode(7);
+		root.right.left.right = new treeNode(8);
+		root.right.right.right = new treeNode(9);
+		treeTraversals.printLevelWise(root);
+	}
+	
+	private static void verticalTraversal(treeNode root){
+		HashMap<Integer,LinkedList<Integer>> map = new HashMap<Integer,LinkedList<Integer>>();
+		getDistances(root,map,0);
+	}
+
+	private static void getDistances(treeNode root, HashMap<Integer, LinkedList<Integer>> map, int dist) {
+		// TODO Auto-generated method stub
+		if(root == null)
+			return;
+		if(map.containsKey(dist))
+			
+		
+	}
+
+}

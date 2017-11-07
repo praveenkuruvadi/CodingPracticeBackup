@@ -1,0 +1,18 @@
+package BlackRock;
+
+public class getTopNElementsInStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input = {1, 23, 12, 9, 30, 2, 50};
+		int k = 3;
+		int[] output = topElems(input,k);
+	}
+
+	private static int[] topElems(int[] input, int k) {
+		// TODO Auto-generated method stub
+		int[] output = new int[k];
+		return null;
+	}
+
+}

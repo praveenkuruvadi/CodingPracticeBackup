@@ -1,0 +1,17 @@
+package BlackRock;
+
+class Job{
+	int id;
+	int deadline;
+	int profit;
+	
+	
+}
+public class jobPicking {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,16 @@
+package leetCodeEasy;
+
+public class palindromePermutation {
+
+	public static void main(String[] args) {
+		System.out.println(Character.getNumericValue('b')-Character.getNumericValue('a'));
+		String toCheck = "atco cta";
+		char[] characters=toCheck.replace(" ", "").toCharArray();
+		int[] arr = new int[Character.getNumericValue('z')-Character.getNumericValue('a')+1];
+		for(char c: characters){
+			arr[Character.getNumericValue(c)-Character.getNumericValue('a')]++;
+		}
+		
+	}
+
+}

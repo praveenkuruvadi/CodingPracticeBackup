@@ -1,0 +1,22 @@
+package BlackRock;
+
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class JavaTesting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>();
+		map.put(7, 5);
+		map.put(6, 4);
+		map.put(5, 3);
+		map.put(4, 2);
+		map.put(3, 1);
+		
+		for(Entry<Integer,Integer> i:map.)
+		
+	}
+
+}

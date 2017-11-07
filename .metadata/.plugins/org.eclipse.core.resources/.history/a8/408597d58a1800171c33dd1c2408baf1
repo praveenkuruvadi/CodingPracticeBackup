@@ -1,0 +1,16 @@
+package codingInterview;
+
+public class stringCompression {
+
+	public static void main(String[] args) {
+		String toCompress = "aabcccccaaa";
+		StringBuilder sb = new StringBuilder();
+		int count =0;
+		char[] arr = toCompress.toCharArray();
+		char currentChar ='';
+		for(char c : arr){
+			
+		}
+	}
+
+}

@@ -1,0 +1,22 @@
+package BlackRock;
+
+public class JosephusProblem {
+	class Node{
+		int val;
+		Node next;
+		public Node(int val){
+			this.val = val;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		solveProblem(7,3);
+	}
+	private static void solveProblem(int n, int k) {
+		// TODO Auto-generated method stub
+		JosephusProblem j = new JosephusProblem();
+		Node root = new Node(1);
+		
+	}
+
+}

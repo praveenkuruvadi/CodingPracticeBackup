@@ -1,0 +1,31 @@
+package BlackRock;
+
+import java.util.HashMap;
+
+public class ParentChildJobKill {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] parentList = {1,2,3,4,5,6,7};
+		int[] childList = {2,3,6,18,10,0,20};
+		printArray(parentList);
+		printArray(childList);
+		killProcess(parentList,childList,2);
+		
+	}
+	
+	private static void killProcess(int[] parentList, int[] childList, int pid) {
+		// TODO Auto-generated method stub
+		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+		for(int i=0;i<parentList.length;i++){
+			
+		}
+	}
+
+	private static void printArray(int[] arr){
+		for(int i:arr)
+			System.out.print(i+" ");
+		System.out.println("");
+	}
+
+}

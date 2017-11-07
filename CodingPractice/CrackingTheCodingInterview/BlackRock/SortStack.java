@@ -1,0 +1,34 @@
+package BlackRock;
+
+import java.util.Stack;
+
+public class SortStack {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Stack<Integer> stack =  new Stack<Integer>();
+		stack.push(5);
+		stack.push(3);
+		stack.push(7);
+		stack.push(9);
+		stack.push(1);
+		stack = sortStack(stack);
+		while(!stack.isEmpty())
+			System.out.println(stack.pop());
+
+	}
+
+	private static Stack<Integer> sortStack(Stack<Integer> stack) {
+		// TODO Auto-generated method stub
+		Stack<Integer> tempStack = new Stack<Integer>();
+		int temp=0;
+		while(!stack.isEmpty()){
+			temp = stack.pop();
+			while(!tempStack.isEmpty()&& tempStack.peek()>temp)
+				stack.push(tempStack.pop());
+			tempStack.push(temp);
+		}
+		return tempStack;
+	}
+
+}

@@ -1,0 +1,44 @@
+package codingInterview;
+
+import java.util.Arrays;
+
+public class oneAway {
+
+	public static void main(String[] args) {
+		String one = "pald";
+		String two ="ape";
+		char[] arrOne = one.toCharArray();
+		char[] arrTwo = two.toCharArray();
+		Arrays.sort(arrOne);
+		Arrays.sort(arrTwo);
+		String lexioOne =new String(arrOne);
+		String lexioTwo = new String(arrTwo);
+		int maxCommon = recursive(lexioOne,lexioTwo, lexioOne.length()-1,lexioTwo.length()-1);
+		System.out.println(maxCommon);
+		if(lexioOne.length()-lexioTwo.length()>1)
+			System.out.println("Length differs by more than 1 character");
+		else if(lexioOne.length()-lexioTwo.length()==1){
+			int min = lexioOne.length()>lexioTwo.length()?lexioTwo.length():lexioOne.length();
+			i
+		}
+		else if(lexioOne.length()-lexioTwo.length()==0){
+			if(maxCommon==lexioOne.length()-1)
+				System.out.println("Full Match: False");
+			else if(maxCommon<lexioOne.length()-2)
+				System.out.println("False");
+		}else
+			System.out.println("True");
+
+	}
+
+	private static int recursive(String lexioOne, String lexioTwo, int i, int j) {
+		if(i<0||j<0)
+			return 0;
+		else if(lexioOne.charAt(i)==lexioTwo.charAt(j))
+			return 1+recursive(lexioOne,lexioTwo,i-1,j-1);
+		else
+			return Math.max(recursive(lexioOne,lexioTwo,i,j-1), 
+					recursive(lexioOne,lexioTwo,i-1,j));
+	}
+
+}

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class runningMedian {
 private static PriorityQueue<Integer> minHeap,maxHeap;
-    
+   
     public static void main(String[] args) {
         minHeap = new PriorityQueue<Integer>(1,new Comparator<Integer>(){
            

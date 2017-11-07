@@ -1,0 +1,21 @@
+package BlackRock;
+
+public class countInversions {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input = {2, 4, 1, 3, 5};
+		System.out.println(countedMergeSort(input,0,input.length-1));
+	}
+
+	private static int countedMergeSort(int[] input, int left, int right) {
+		// TODO Auto-generated method stub
+		if(left<right){
+			int mid = (left+right)/2;
+		}
+		
+		
+		return 0;
+	}
+
+}

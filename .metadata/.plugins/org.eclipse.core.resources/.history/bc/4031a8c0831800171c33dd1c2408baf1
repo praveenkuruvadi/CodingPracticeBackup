@@ -1,0 +1,234 @@
+package com.dc.lab1;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class clientThread implements Runnable{
+	private static String nodeId;
+	private static Map<String,Integer> edgesToNeighbors;
+	private static int roundNumber;
+	
+	public clientThread(String nodeId, List<String> nodeList, List<Integer> edgeList){
+		this.nodeId = nodeId;
+		this.edgesToNeighbors = new HashMap<String,Integer>();
+		for(int i =0;i< nodeList.size();i++){
+			edgesToNeighbors.put(nodeList.get(i), edgeList.get(i));
+		}
+		writeLog("Thread initialized");
+		roundNumber =0;
+	}
+
+	@Override
+	public void run() {
+		writeLog("Thread starting");
+		while(!Master.getEndOperation()){
+			writeLog("Thread round:"+ roundNumber+" Global round:"+Master.getCurrentGlobalRound());
+			System.out.println(nodeId+" round:"+roundNumber+" Global round:"+Master.getCurrentGlobalRound());
+			try {
+				Thread.currentThread().sleep(100);
+			} catch (InterruptedException e) {
+				System.out.println("Fail 1");
+				writeLog("Thread sleep failed at round:"+roundNumber);
+			}
+			
+			Master.setPermissions(nodeId);
+			
+			
+			System.out.println(nodeId+" setting into next");
+			while(!goToNextRound()){
+				try {
+					//System.out.println(nodeId+ " wait3");
+					Thread.currentThread().sleep(5);
+				} catch (InterruptedException e) {
+					System.out.println("Fail 2");
+					writeLog("Thread sleep failed at round:"+roundNumber);
+				}
+			}
+			
+			Master.setIntoNextRound(nodeId);
+			
+			roundNumber++;
+		}
+		writeLog("Program ended");
+	}
+	
+	private boolean goToNextRound(){
+		if(Master.getProceedToNextRound())
+			return true;
+		return false;
+	}
+	
+	private void writeLog(String msg) {
+		Writer writer;
+		try {
+			FileOutputStream FoutStream = new FileOutputStream(
+					"outputFiles/threadFile" + nodeId + ".txt", true);
+			try {
+				writer = new BufferedWriter(
+						new OutputStreamWriter(FoutStream, "UTF-8"));
+				writer.append(msg);
+				writer.append("\n");
+				writer.close();
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+			} finally {
+				FoutStream.close();
+			}
+		} catch (Exception e) {
+		}
+	}
+\begin{thebibliography}{10}
+
+\bibitem{DistributedClkSamplingSync}
+G.~Allard, V.~Genc, and J.~Yelloz.
+\newblock {\em Fully distributed clock synchronization in wide-range TDMA
+  Ad-Hoc networks}.
+\newblock Nov 2011.
+
+\bibitem{wave-multichannel}
+IEEE~Standards association.
+\newblock {\em IEEE Standard for Wireless Access in Vehicular Environments
+  (WAVE)— Multi-Channel Operation}.
+\newblock 2016.
+
+\bibitem{wave-networking}
+IEEE~Standards association.
+\newblock {\em IEEE Standard for Wireless Access in Vehicular Environments
+  (WAVE)— Networking Services}.
+\newblock 2016.
+
+\bibitem{adaptiveContentionWindow}
+A.~Berradj and Z.~Mammeri.
+\newblock {\em Adaptive Contention Window Scheme to Improve Multi-Hop Broadcast
+  in VANETs}.
+\newblock May 2015.
+
+\bibitem{mergeSubNetworksVanets}
+C.~Caballero-Gil, P.~Caballero-Gil, and J.~Molina-Gil.
+\newblock {\em Merging sub-networks in VANETs by using the IEEE 802.11xx
+  protocols}, volume~8.
+\newblock 2015.
+\newblock cited By 0.
+
+\bibitem{overlappingIBSS}
+H.~A. Eladly and T.~M. Chen.
+\newblock {\em Performance modeling of overlapping IBSSs in the IEEE 802.11 DCF
+  mode}, volume~1.
+\newblock Dec 2003.
+
+\bibitem{autoIPConfigVanets}
+Maria Fazio, Claudio~E. Palazzi, Shirshanka Das, and Mario Gerla.
+\newblock {\em Automatic IP Address Configuration in VANETs}.
+\newblock VANET '06. ACM, New York, NY, USA, 2006.
+
+\bibitem{InterferenceAwareChannelAssignment}
+P.~Fazio, F.~De Rango, C.~Sottile, and C.~Calafate.
+\newblock {\em A New Channel Assignment Scheme for Interference-Aware Routing
+  in Vehicular Networks}.
+\newblock May 2011.
+
+\bibitem{ieee1609.4}
+IEEE.
+\newblock {\em IEEE 1609.4 standard}.
+\newblock 2006.
+
+\bibitem{ieee802.11}
+IEEE.
+\newblock {\em IEEE 802.11 standard}.
+\newblock 2012.
+
+\bibitem{RecentChallenges}
+O.~Kaiwartya and S.~Kumar.
+\newblock {\em Geocast routing: Recent advances and future challenges in
+  vehicular adhoc networks}.
+\newblock 2014.
+\newblock cited By 8.
+
+\bibitem{HighLoadDistSync}
+Jae~Young Lee, A.~Verma, Hwang~Soo Lee, and Joong~Soo Ma.
+\newblock {\em A distributed time synchronization algorithm robust to traffic
+  load for MANETs}, volume~1.
+\newblock Sept 2005.
+
+\bibitem{QuorumBasedClockSync}
+S.~m.~Chen, S.~p.~Kuo, and Y.~c.~Tseng.
+\newblock {\em A Quorum-based Mechanism as an Enhancement to Clock
+  Synchronization Protocols for IEEE 802.11 MANETs}, volume~11.
+\newblock April 2007.
+
+\bibitem{HighVelocitySync}
+K.~Medani, M.~Aliouat, and Z.~Aliouat.
+\newblock {\em High velocity aware clocks synchronization approach in vehicular
+  ad hoc networks}, volume 456.
+\newblock 2015.
+\newblock cited By 0.
+
+\bibitem{HighMobilityIntervalBased}
+L.~Meier, P.~Blum, and L.~Thiele.
+\newblock {\em Interval-based clock synchronization is resilient to mobility}.
+\newblock Nov 2005.
+
+\bibitem{SlotAlingmentNeighbours}
+M.~Mustafa, M.~Papatriantafilou, E.~M. Schiller, A.~Tohidi, and P.~Tsigas.
+\newblock {\em Autonomous TDMA Alignment for VANETs}.
+\newblock Sept 2012.
+
+\bibitem{TimerSyncIBSS}
+P.~Rauschert, A.~Honarbacht, and A.~Kummert.
+\newblock {\em On the IEEE 802.11 IBSS and its timer synchronization function
+  in multi-hop ad hoc networks}.
+\newblock Sept 2004.
+
+\bibitem{beaconBackoffStreaks}
+M.~van Eenennaam, A.~Remke, and G.~Heijenk.
+\newblock {\em An analytical model for beaconing in VANETs}.
+\newblock Nov 2012.
+
+\bibitem{SurverySecureVanetComm}
+V.~Vijayalakshmi, M.~Sathya, S.~Saranya, and C.~Selvaroopini.
+\newblock {\em Survey on various mechanisms for secure and efficient VANET
+  communication}.
+\newblock Feb 2014.
+
+\bibitem{ConvergeTimeSync}
+Shizhun Wang, A.~Pervez, and M.~Nekovee.
+\newblock {\em Converging time synchronization algorithm for highly dynamic
+  vehicular ad hoc networks (VANETs)}.
+\newblock July 2010.
+
+\bibitem{surveyVanetProtocols}
+T.~L. Willke, P.~Tientrakool, and N.~F. Maxemchuk.
+\newblock {\em A survey of inter-vehicle communication protocols and their
+  applications}, volume~11.
+\newblock Second 2009.
+
+\bibitem{TBABackoff}
+Shahhoseini Hadi Shahriar Lee~Garry Zhalehpour~Sasan, Niafar~Samira.
+\newblock {\em TBA Backoff Algorithm to Enhance the Quality of Service in
+  MANETs}.
+
+\bibitem{SurveyGlockTimeSync}
+X.~Zhao, V.~Ganapathy, N.~Pissinou, and K.~Makki.
+\newblock {\em Revisiting Global Time Synchronization}.
+\newblock Nov 2007.
+
+\bibitem{BeaconPriorityDominatinSet}
+Dong Zhou and T.~H. Lai.
+\newblock {\em A scalable and adaptive clock synchronization protocol for IEEE
+  802.11-based multihop ad hoc networks}.
+\newblock Nov 2005.
+
+\bibitem{CollissionAvoidenceEmergency}
+W.~Zhu, D.~Gao, C.~H. Foh, W.~Zhao, and H.~Zhang.
+\newblock {\em A Collision Avoidance Mechanism for Emergency Message Broadcast
+  in Urban VANET}.
+\newblock May 2016.
+
+\end{thebibliography}
+

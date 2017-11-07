@@ -1,0 +1,19 @@
+package BlackRock;
+
+class job{
+	int time;
+	int loss;
+	
+	public job(int time,int loss){
+		this.time = time;
+		this.loss = loss;
+	}
+}
+public class orderJobsMinLoss {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

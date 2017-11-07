@@ -1,0 +1,14 @@
+package BlackRock;
+
+public class shuffleCardDeck {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] shuffledDeck = shuffleDeck();
+		for(int i:shuffledDeck){
+			System.out.println(i+" ");
+		}
+
+	}
+
+}

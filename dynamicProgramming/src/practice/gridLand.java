@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 public class gridLand {
 
 	public static void main(String[] args){
-		String[] in = {"2 2 2"};
+		String[] in = {"4 4 2"};
 		String[] out = gridLand(in);
 		System.out.println(out[0]);
 	}

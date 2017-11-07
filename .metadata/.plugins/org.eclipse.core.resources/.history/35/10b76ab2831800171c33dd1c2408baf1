@@ -1,0 +1,46 @@
+Bluetooth Low Energy (BLE) has the ability to exchange data in one of two states: connected and advertising modes. Connected mode uses the Generic Attribute (GATT) layer to transfer data in a one-to-one connection. Advertising mode uses the Generic Access Profile (GAP) layer to broadcast data out to anyone who is listening. Advertising mode is a one-to-many transfer and has no guarantees about data coherence.
+GATT layer
+GATT is built on top of the Attribute Protocol (ATT), which uses GATT data to define the way that two Bluetooth Low Energy devices send and receive standard messages. GATT defines client and server roles. GATT procedures can be considered to be split into three basic types: Discovery procedures, Client-initiated procedures and Server-initiated procedures. The GATT server stores the data transported over the ATT and accepts ATT requests, commands and confirmations from the GATT client. The GATT server sends responses to requests and sends indications and notifications asynchronously to the GATT client when specified events occur on the GATT server. GATT also specifies the format of data contained on the GATT server.
+Advertising Mode
+When a BLE peripheral device is in advertising mode, advertising packets are sent periodically on each advertising channel. The time interval between packets has both a fixed interval and a random delay.
+The Packet data unit for the advertising channel (called the Advertising Channel PDU) includes a 2-byte header and a variable payload from 6 to 37 bytes. The actual length of the payload is defined by the 6-bit Length field in the header of the Advertising Channel PDU.
+
+ADV_IND and ADV_NONCONN_IND:
+
+ADV_IND
+This is a PDU type for Advertisement used to form a quick connection.
+It is a generic advertisement and usually the most common. It’s generic in that it is not directed and it is connectable, meaning that a central device can connect to the peripheral that is advertising, and it is not directed towards a particular Central device.
+When a peripheral device (Fitbit) sends an ADV_IND advertisements, it is helping Central devices such as Smartphones find it. Once found, a Central device can begin the connection process.
+ADV_NONCONN_IND
+> ADV_NONCONN_IND is the advertisement type used when the peripheral (Fitbit device) does not want to accept connections, which is typical in Beacons. It is used to avoid a connection completely.
+
+SCAN_REQ and SCAN_RSP
+The Scan Response is an optional second advertising packet that some BLE devices such as Fitbit, uses to provide additional information during the advertising phase.  The normal mandatory advertising packet is limited to 31 bytes, so the Bluetooth SIG includes the possibility to request a second advertising payload via the Scan Request.
+Both of these packets, along with the Device Name that is included in the Scan Response payload, can been seen in the Wireshark capture images included. 
+When a smartphone scans for advertisements, it can also request more information from the advertising device without forming a connection. This is done through a Scan Request which is a special packet that is sent to the Fitbit. The Fitbit then receives the Scan Request and responds with a Scan response.
+
+UUIDs 
+Services, Characteristics and other items use UUID to uniquely identify them, hence they are critical to BLE devices. UUIDs are unique 128-bit (16 byte) numbers. It can be observed that the Fitbit UUID takes up most of the free space in the main advertising packet.
+
+CONNECT_REQ
+Once the paring is initiated via the smartphone, the two devices will attempt to connect to each other by means of a Connection Request, which is initiated by the central device (the phone). This packet can be observed in the Figure.
+
+Write Request and Write Response
+Once the connection has been established, we can see that the FitBit application tries to write data to the Fitbit via a Write Request to handle '0x0012', which is the location of an entry in the attribute table. Write and read requests are made by a client to a server, to ask for data (read request) or to send data (write request). In these cases, the client first makes the request, and the server then responds, by either acknowledging the write request (and thus, writing the data) or by sending back the value requested by the client.
+
+
+Write Characteristic Value uses ATT Write Request and the ATT Write Response. The GATT server acknowledges a write request with a write response.
+The GATT server can perform these procedures without the application knowing, or in terms of BLE, without the application authorizing the procedure. Authorization is a confirmation by the application to continue with the procedure. It is required that the application authorizes the write request. This is called GATTS Write Request with Authorization, which is elaborated in the message sequence chart shown below: 
+
+Empty PDU requests
+Similar to USB, all BLE transaction are initiated by the bus 'Master', which is this case is the smartphone. In order to receive data from the bus slave (the Fitbit in this particular case) the central device Master sends a 'ping' of sorts to the peripheral Fitbit device at a delay known as the 'connection interval'. 
+We can see pairs of data transaction that happen at a reasonably consistent interval, but no data is exchanged since the Fitbit doesn’t have any data for the smartphone application.
+
+
+Analysis of Data Transaction from Slave (Fitbit) to Master (Smartphone application)
+Rcvd Handle Value Notification is a 4-byte Bluetooth Attribute Protocol packet, which shows that the attribute 0x000b has been updated and the new value is ‘ ’, which is encrypted.
+The data being sent in a single transaction is highlighted in the Image below. It can be observed that the actual data is encrypted and hence cannot be deciphered in this packet screenshot.
+
+
+
+

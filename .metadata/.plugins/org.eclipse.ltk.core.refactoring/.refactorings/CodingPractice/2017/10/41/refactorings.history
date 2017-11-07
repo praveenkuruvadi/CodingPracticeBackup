@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;TreesNGraphs.graphNode.id&apos; in &apos;TreesNGraphs.graphNode&apos;&#x0D;&#x0A;- Original project: &apos;CodingPractice&apos;&#x0D;&#x0A;- Original element: &apos;TreesNGraphs.graphNode.id&apos;&#x0D;&#x0A;- Getter method name: &apos;getId&apos;&#x0D;&#x0A;- Setter method name: &apos;setId&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;id&apos;" flags="589830" getter="getId" id="org.eclipse.jdt.ui.self.encapsulate" input="/CrackingTheCodingInterview&lt;TreesNGraphs{graphNode.java[graphNode^id" insertion="4" setter="setId" stamp="1507477107994" version="1.0" visibility="1"/>
+</session>

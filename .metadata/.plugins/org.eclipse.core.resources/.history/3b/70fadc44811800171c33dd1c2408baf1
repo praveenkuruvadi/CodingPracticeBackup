@@ -1,0 +1,26 @@
+package leetCodeEasy;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class regexExample {
+
+	public static void main(String[] args) {
+		String exampleText = "inviwno''}}vdfv}%^@v jdnv(*##hn&#&";
+		Pattern pattern = Pattern.compile("[a-zA-Z1-9]*");
+		Pattern replacePattern= Pattern.compile("[{}!@:;#$%^&*()'?|/<>.,~]+");
+		
+		System.out.println(exampleText.matches(pattern.toString()));
+		System.out.println(exampleText.replaceAll(replacePattern.toString(), ""));
+		String test = exampleText.replaceAll(replacePattern.toString(), "");
+		System.out.println(test.matches(pattern.toString()));
+		Matcher match = pattern.matcher(exampleText);
+		while(match.find()){
+			exampleText.replace(Character.toString(exampleText.charAt(match.start())), "");
+		}
+		System.out.println(exampleText);
+
+
+	}
+
+}

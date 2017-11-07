@@ -1,0 +1,12 @@
+package BlackRock;
+
+public class StringToInteger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String test = " 23j41u";
+		System.out.println(convertToInteger(test));
+
+	}
+
+}

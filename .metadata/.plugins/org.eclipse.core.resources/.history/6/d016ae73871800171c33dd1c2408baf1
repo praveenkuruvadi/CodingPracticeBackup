@@ -1,0 +1,16 @@
+package leetCodeEasy;
+
+import java.util.Arrays;
+
+public class twoStringPermutationCheck {
+
+	public static void main(String[] args) {
+		String one = "praveen";
+		String two = "arpenve";
+		char[] arrOne = one.toCharArray();
+		char[] arrTwo = two.toCharArray();
+		System.out.println(Arrays.sort(arrOne););
+
+	}
+
+}

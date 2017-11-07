@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class robotGrid {
 	
-	private static final int r = 3;
-	private static final int d = 3;
-	private static int offLimitCells=2;
+	private static final int r = 4;
+	private static final int d = 4;
+	private static int offLimitCells=3;
 	
 	public static void main(String[] args) {
 		

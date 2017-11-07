@@ -1,0 +1,26 @@
+package codingInterview;
+
+import java.util.Arrays;
+
+public class oneAway {
+
+	public static void main(String[] args) {
+		String one = "pale";
+		String two ="ple";
+		char[] arrOne = one.toCharArray();
+		char[] arrTwo = two.toCharArray();
+		Arrays.sort(arrOne);
+		Arrays.sort(arrTwo);
+		int i=0,j=0;
+		while(i<arrOne.length || j<arrTwo.length){
+			if(Math.abs(i-j)>1){
+				System.out.println("Not one away");
+			}
+			if(arrOne[i]==arrTwo[j]){
+				i++;j++;
+			}
+		}
+
+	}
+
+}

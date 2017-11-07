@@ -1,0 +1,98 @@
+package TreesNGraphs;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class treeTraversals {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		treeNode root2 = new treeNode(1);
+		root2.left = new treeNode(2,new treeNode(4),new treeNode(5));
+		root2.right  = new treeNode(3);
+		treeNode root = new treeNode(10);
+		root.left = new treeNode(5);
+		root.right = new treeNode(20,new treeNode(3,new treeNode(9),new treeNode(18)),new treeNode(7));
+		inOrderTraversal(root);
+		System.out.println("");
+		preOrderTraversal(root);
+		System.out.println("");
+		preOrderTraversal(root);
+		System.out.println("");
+		postOrderTraversal(root);
+		System.out.println("");
+		printLevelWise(root);
+		System.out.println("Here");
+		printLeftNodesReverse(root2);
+		System.out.println("Here2");
+		printLevelWiseReverse(root);
+	}
+	
+	private static void printLevelWiseReverse(treeNode root) {
+		// TODO Auto-generated method stub
+		Queue<treeNode> queue = new LinkedList<treeNode>();
+		queue.add(root);
+		Stack<String> stack = new Stack<String>();
+		int currSize = 0;
+		while(!queue.isEmpty()){
+			currSize = queue.size();
+		}
+	}
+
+	private static void printLeftNodesReverse(treeNode root) {
+		// TODO Auto-generated method stub
+		if(root == null)
+			return;
+		printLeftNodesReverse(root.left);
+		System.out.print(root.data+ " ");
+		
+	}
+
+	public static void printLevelWise(treeNode root){
+		Queue<treeNode> queue= new LinkedList<treeNode>();
+		queue.add(root);
+		int nodeCount = 0;
+		while(!queue.isEmpty()){
+			nodeCount = queue.size();
+			System.out.println("");
+			while(nodeCount>0){
+				treeNode deque = queue.remove();
+				System.out.print(deque.data+" ");
+				if(deque.left!= null) queue.add(deque.left);
+				if(deque.right!= null) queue.add(deque.right);
+				nodeCount--;
+			}
+		}
+		System.out.println("");
+	}
+	public static void inOrderTraversal(treeNode root){
+		if(root == null)
+			return;
+		inOrderTraversal(root.left);
+		System.out.print(root.data+" ");
+		inOrderTraversal(root.right);
+	}
+	 
+	public static void preOrderTraversal(treeNode root){
+		if(root == null){
+			System.out.print("x ");
+			return;
+		}
+		System.out.print(root.data+" ");
+		preOrderTraversal(root.left);
+		preOrderTraversal(root.right);
+	}
+	
+	public static void postOrderTraversal(treeNode root){
+		if(root == null)
+			return;
+		postOrderTraversal(root.left);
+		postOrderTraversal(root.right);
+		System.out.print(root.data+" ");
+	}
+
+
+}

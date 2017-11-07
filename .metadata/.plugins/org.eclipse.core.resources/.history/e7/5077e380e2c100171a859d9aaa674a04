@@ -1,0 +1,24 @@
+package BlackRock;
+
+public class JobPickingWithDeadline {
+	class Job{
+		int id;
+		int deadline;
+		int profit;
+		
+		public Job(int id,int deadline,int profit){
+			this.id = id;
+			this.deadline = deadline;
+			this.profit = profit;
+		}
+	}
+	public static void main(String[] args) {
+		{ {'a', 2, 100}, {'b', 1, 19}, {'c', 2, 27},
+            {'d', 1, 25}, {'e', 3, 15}};
+		// TODO Auto-generated method stub
+		JobPickingWithDeadline jobDealine = new JobPickingWithDeadline();
+		Job[] jobs = new Job[5];
+		jobs[0] = jobDealine.new Job()
+	}
+
+}

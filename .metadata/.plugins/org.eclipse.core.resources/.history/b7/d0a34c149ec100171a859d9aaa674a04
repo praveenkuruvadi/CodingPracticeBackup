@@ -1,0 +1,16 @@
+package BlackRock;
+
+public class rearrangePositiveAndNegative {
+	
+//	Given an array of positive and negative numbers, arrange them such that all 
+//	negative integers appear before all the positive integers 
+//	in the array without using any additional data structure like hash table, arrays, etc. 
+//	The order of appearance should be maintained.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input= { -12, 11, -13, -5, 6, -7, 5, -3, -6 };
+		input = sortNegativePositive(input);
+
+	}
+
+}

@@ -1,0 +1,29 @@
+package leetCodeEasy;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class frequencySortWordsInFile {
+
+	public static void main(String[] args)  {
+		try {
+			FileReader file = new FileReader("otherFiles/textFile.txt");
+			BufferedReader reader = new BufferedReader(file);
+			Pattern replacePattern = Pattern.compile("[{}!@:;#$%^&*()'? |/<>`-_=.,~]+");
+			while(reader.readLine()!=null){
+				String[] lineData =reader.readLine().split(replacePattern.toString());
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

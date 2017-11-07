@@ -1,0 +1,10 @@
+package BlackRock;
+
+public class segregateEvenOddArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] input = {12, 34, 45, 9, 8, 90, 3};
+	}
+
+}

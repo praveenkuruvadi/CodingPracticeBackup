@@ -1,0 +1,11 @@
+package BlackRock;
+
+public class DecimalToBinary {
+	
+	public static void main(String[] args){
+		
+		int input = 17;
+		System.out.println(convertToBinaryNoDecimalPoint(input));
+	}
+
+}
